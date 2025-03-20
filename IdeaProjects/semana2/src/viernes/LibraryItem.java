@@ -39,10 +39,17 @@ public class LibraryItem {
         isDisponible = disponible;
     }
 
+
     public void showDetails(){
         System.out.println(
                 "El id del autor es: "+itemID
                + "\nEl titulo del libro es: " + title
                + "\nEl libro se encuentra disponible? " + isDisponible);
     }
+
+    @Override
+    public String toString() {
+        return title + ", " + itemID + ", " + isDisponible;
+    }
 }
+

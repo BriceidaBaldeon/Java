@@ -16,6 +16,20 @@ public class Library {
         this.libraryUsers = new ArrayList<>();
     }
 
+    // ADDITEM : Agregar un item validando que no esté repetido
+    public void addItem(int itemID, String title, boolean isDisponible) {
+        for (LibraryItem item : libraryItems) {
+            if (item.getItemID() == itemID) {
+                System.out.println("Error: Ya existe un ítem con el ID " + itemID);
+                return;
+            }
+        }
+
+        LibraryItem nuevoItem = new LibraryItem(itemID,title , isDisponible);
+        libraryItems.add(nuevoItem);
+        System.out.println(" * Ítem agregado correctamente: " + nuevoItem.getTitle());
+    }
+
     // AGREGAR USUARIO : Agregar un usuario validando que no esté repetido
     public boolean agregarUsuario(LibraryUser user) {
 
@@ -31,6 +45,9 @@ public class Library {
 
     //MOSTRARUSUARIOS :  Usuarios de la biblioteca
     public void mostrarUsuarios() {
+        if (libraryUsers.isEmpty()) {
+            System.out.println("No hay usuarios en la biblioteca.");
+        }
         System.out.println("Usuarios en la biblioteca:");
         for (LibraryUser user : libraryUsers) {
             System.out.println("ID: " + user.getUserID() + ", Nombre: " + user.getUserName());
@@ -42,9 +59,11 @@ public class Library {
         if (libraryItems.isEmpty()) {
             System.out.println("No hay ítems en la biblioteca.");
         } else {
+            int i = 1;
             System.out.println("Lista de ítems en la biblioteca:");
             for (LibraryItem item : libraryItems) {
-                System.out.println("- " + item.getTitle() + " (ID: " + item.getItemID() + ")");
+                System.out.println("* "+i+" "+ item.toString());
+                 i++;
             }
         }
     }

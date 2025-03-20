@@ -21,6 +21,7 @@ public class Book extends LibraryItem{
     }
 
     public void showDetails(){
+        super.showDetails();
         System.out.println(
                 "El nombre del author es "+this.author
                         + "\n El titulo del libro es: " + getTitle()
