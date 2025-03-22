@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 //Gestiona la colección de artículos de la biblioteca.
+//briceida
 public class Library {
     String name;
     ArrayList<Item> items;
